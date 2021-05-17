@@ -1,0 +1,68 @@
+type Product {
+  id: ID
+  userName: String
+  title: String
+  images: [String]
+  price: Int
+  color: String
+  company: String
+  size: String
+  number: Int
+  desc: String
+  shop: Shop
+  comments: [Comment]
+  likes: [Like]
+  commentCount: Int
+  likeCount: Int
+  createdAt: String
+  updatedAt: String
+}
+type Comment {
+  id: ID
+  user: String
+  body: String
+  createdAt: String
+  updatedAt: String
+}
+type Like {
+  id: ID
+  user: String
+  createdAt: String
+  updatedAt: String
+}
+type Query {
+  products: [Product]
+  product(id: ID!): Product!
+}
+
+type Mutation {
+  createProduct(
+    title: String
+    images: [String]
+    price: Int
+    color: String
+    company: String
+    size: String
+    number: Int
+    desc: String
+    shopId: ID
+  ): Boolean
+  deleteProduct(productId: ID!): Boolean
+  updateProduct(
+    productId: ID!
+    images: [String]
+    price: Int
+    color: String
+    company: String
+    size: String
+    number: Int
+    desc: String
+    title: String
+  ): Boolean
+  likeProduct(productId: ID!): Boolean
+  createComment(productId: ID!, body: String!): Boolean
+  deleteComment(productId: ID!, commentId: ID!): Boolean
+}
+type Subscription {
+  onProductCreate: Product
+}

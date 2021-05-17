@@ -1,0 +1,25 @@
+import { FC, memo } from "react";
+import { classNames } from "utils";
+
+export const SelectOptionSingle: FC<ISelectOption> = memo(
+  ({ key, selected, disabled, onChange, value, toggle, onClick, children }) => {
+    return (
+      <span
+        slot="wrapper"
+        key={key}
+        className={classNames(
+          "w-full flex items-center py-2 z-40 hover:text-indigo-700",
+          selected ? "text-indigo-700 font-semibold" : " text-gray-600",
+          disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+        )}
+        onClick={() => {
+          onChange(value);
+          toggle();
+          onClick && onClick(toggle);
+        }}
+      >
+        {children}
+      </span>
+    );
+  }
+);

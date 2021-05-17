@@ -1,0 +1,45 @@
+type Shop {
+  id: ID
+  type: String
+  name: String
+  owner: User
+  country: String
+  region: String
+  city: String
+  address: String
+  products: [Product]
+  createdAt: String
+  images: [String]
+  followers: [User]
+  followerCount: Int
+  productCount: Int
+}
+type Query {
+  getShops: [Shop]
+  getShop(id: ID!): Shop
+}
+
+type Mutation {
+  createShop(
+    type: String
+    name: String
+    country: String
+    region: String
+    city: String
+    address: String
+    images: [String]
+  ): Boolean
+  updateShop(
+    id: ID
+    name: String
+    region: String
+    city: String
+    address: String
+    images: [String]
+  ): Boolean
+  addShopFollower(id: ID!): Boolean
+}
+type Subscription {
+  onShopCreate: Shop
+  onFollow: User
+}

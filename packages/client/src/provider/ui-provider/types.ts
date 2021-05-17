@@ -1,0 +1,4 @@
+export const uiTypes = {
+  TOGGLE_DRAWER: "TOGGLE_DRAWER",
+  TOGGLE_DIALOG: "TOGGLE_DIALOG",
+};

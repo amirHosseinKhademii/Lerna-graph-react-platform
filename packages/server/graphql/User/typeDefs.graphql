@@ -1,0 +1,57 @@
+type User {
+  id: ID
+  name: String
+  lastName: String
+  userName: String
+  email: String
+  password: String
+  profile: Profile
+  createdAt: String
+  type: String
+  shops: [Shop]
+  token: String
+  following: [Shop]
+}
+type Profile {
+  userName: String
+  country: String
+  region: String
+  city: String
+  address: String
+  phone: String
+  image: String
+  postCode: String
+}
+type Query {
+  getUsers: [User]
+  getUser(userId: ID!): User!
+  # getFollowers(userId: ID): [User]
+}
+
+type Mutation {
+  signup(
+    name: String!
+    lastName: String!
+    userName: String!
+    email: String!
+    password: String!
+    type: String!
+  ): User
+
+  login(userName: String!, password: String!): User
+
+  updateProfile(
+    name: String
+    lastName: String
+    country: String
+    region: String
+    city: String
+    address: String
+    phone: String
+    image: String
+    postCode: String
+  ): Boolean
+}
+type Subscription {
+  signupUser: User!
+}

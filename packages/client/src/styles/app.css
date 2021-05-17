@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  .col-start {
+    @apply flex flex-col items-start;
+  }
+  .col-end {
+    @apply flex flex-col items-end;
+  }
+  .row-around {
+    @apply flex flex-row justify-around;
+  }
+  .row-between {
+    @apply flex justify-between items-center;
+  }
+  .row-start {
+    @apply flex justify-start items-center;
+  }
+  .row-center {
+    @apply flex justify-center items-center;
+  }
+  .row-items-center {
+    @apply flex flex-row items-center;
+  }
+  .row-items-start {
+    @apply flex flex-row justify-center items-start;
+  }
+  .trans {
+    @apply transition ease-linear duration-200;
+  }
+  .col-full {
+    @apply w-full flex flex-col;
+  }
+}
